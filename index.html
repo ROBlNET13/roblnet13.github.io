@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ROBlNET13 - Developer & Game Modder</title>
+        <script src="//cdn.tailwindcss.com"></script>
+        <style>
+            @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
+
+            body {
+                font-family: "Poppins", sans-serif;
+                background-color: #0d1117;
+                color: #c9d1d9;
+            }
+
+            .gradient-text {
+                background: linear-gradient(45deg, #ff00ff, #00ffff);
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+            }
+
+            .card {
+                background-color: #161b22;
+                border: 1px solid #30363d;
+                transition: all 0.3s ease;
+            }
+
+            .card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            }
+
+            .skill-tag {
+                background-color: #238636;
+                color: #ffffff;
+                font-size: 0.8rem;
+                padding: 0.2rem 0.5rem;
+                border-radius: 9999px;
+            }
+
+            .github-stats {
+                background-color: #161b22;
+                border: 1px solid #30363d;
+                border-radius: 0.5rem;
+                padding: 1rem;
+            }
+
+            .github-stat {
+                display: flex;
+                align-items: center;
+                margin-bottom: 0.5rem;
+            }
+
+            .github-stat-icon {
+                width: 20px;
+                height: 20px;
+                margin-right: 0.5rem;
+            }
+        </style>
+    </head>
+    <body class="min-h-screen flex flex-col">
+        <header class="bg-gray-900 shadow-lg">
+            <nav class="container mx-auto px-6 py-3">
+                <div class="flex justify-between items-center">
+                    <a href="#" class="text-2xl font-bold gradient-text"
+                        >ROBlNET13</a
+                    >
+                    <div class="hidden md:flex space-x-6">
+                        <a
+                            href="#about"
+                            class="hover:text-blue-400 transition duration-300"
+                            >About</a
+                        >
+                        <a
+                            href="#projects"
+                            class="hover:text-blue-400 transition duration-300"
+                            >Projects</a
+                        >
+                        <a
+                            href="#stats"
+                            class="hover:text-blue-400 transition duration-300"
+                            >Stats</a
+                        >
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main class="flex-grow container mx-auto px-6 py-8">
+            <section id="about" class="mb-16">
+                <h2 class="text-3xl font-bold mb-6 gradient-text">About Me</h2>
+                <div class="flex flex-col md:flex-row gap-8">
+                    <div class="md:w-2/3">
+                        <p class="mb-4 text-lg">
+                            Hello! I'm ROBlNET13, a passionate developer and
+                            game modder. I specialize in creating fun and
+                            innovative game experiences, with a particular focus
+                            on modding existing games to add new content and
+                            features.
+                        </p>
+                        <div class="card p-6 rounded-lg">
+                            <h3 class="text-xl font-semibold mb-4">
+                                Skills & Tools
+                            </h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-tag">LuaU</span>
+                                <span class="skill-tag">Windows</span>
+                                <span class="skill-tag">VSCode</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-1/3" align="right">
+                        <img
+                            src="https://avatars.githubusercontent.com/u/116967343?s=150"
+                            alt="Profile Image"
+                            class="rounded-full border-4 border-purple-500 shadow-lg"
+                        />
+                    </div>
+                </div>
+            </section>
+
+            <section id="projects" class="mb-16">
+                <h2 class="text-3xl font-bold mb-6 gradient-text">Projects</h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="card p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-2">
+                            Plants vs. Zombies MODDED
+                        </h3>
+                        <p class="mb-4">
+                            An improved version of the original Plants vs.
+                            Zombies web game, featuring new content such as
+                            improved music, Balloonatic, Vasebreaker, and I,
+                            Zombie.
+                        </p>
+                        <a href="#" class="text-blue-400 hover:underline"
+                            >View Project →</a
+                        >
+                    </div>
+                </div>
+            </section>
+
+            <section id="stats" class="mb-16">
+                <h2 class="text-3xl font-bold mb-6 gradient-text">
+                    GitHub Stats
+                </h2>
+                <div class="github-stats">
+                    <div class="github-stat">
+                        <svg
+                            class="github-stat-icon"
+                            fill="currentColor"
+                            viewBox="0 0 16 16"
+                        >
+                            <path
+                                fill-rule="evenodd"
+                                d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25zm0 2.445L6.615 5.5a.75.75 0 01-.564.41l-3.097.45 2.24 2.184a.75.75 0 01.216.664l-.528 3.084 2.769-1.456a.75.75 0 01.698 0l2.77 1.456-.53-3.084a.75.75 0 01.216-.664l2.24-2.183-3.096-.45a.75.75 0 01-.564-.41L8 2.694v.001z"
+                            />
+                        </svg>
+                        <span id="ts">Total Stars Earned:</span>
+                    </div>
+                    <div class="github-stat">
+                        <svg
+                            class="github-stat-icon"
+                            fill="currentColor"
+                            viewBox="0 0 16 16"
+                        >
+                            <path
+                                fill-rule="evenodd"
+                                d="M1.643 3.143L.427 1.927A.25.25 0 000 2.104V5.75c0 .138.112.25.25.25h3.646a.25.25 0 00.177-.427L2.715 4.215a6.5 6.5 0 11-1.18 4.458.75.75 0 10-1.493.154 8.001 8.001 0 101.6-5.684zM7.75 4a.75.75 0 01.75.75v2.992l2.028.812a.75.75 0 01-.557 1.392l-2.5-1A.75.75 0 017 8.25v-3.5A.75.75 0 017.75 4z"
+                            />
+                        </svg>
+                        <span id="tc">Total Commits ():</span>
+                    </div>
+                    <div class="github-stat">
+                        <svg
+                            class="github-stat-icon"
+                            fill="currentColor"
+                            viewBox="0 0 16 16"
+                        >
+                            <path
+                                fill-rule="evenodd"
+                                d="M7.177 3.073L9.573.677A.25.25 0 0110 .854v4.792a.25.25 0 01-.427.177L7.177 3.427a.25.25 0 010-.354zM3.75 2.5a.75.75 0 100 1.5.75.75 0 000-1.5zm-2.25.75a2.25 2.25 0 113 2.122v5.256a2.251 2.251 0 11-1.5 0V5.372A2.25 2.25 0 011.5 3.25zM11 2.5h-1V4h1a1 1 0 011 1v5.628a2.251 2.251 0 101.5 0V5A2.5 2.5 0 0011 2.5zm1 10.25a.75.75 0 111.5 0 .75.75 0 01-1.5 0zM3.75 12a.75.75 0 100 1.5.75.75 0 000-1.5z"
+                            />
+                        </svg>
+                        <span id="tp">Total PRs:</span>
+                    </div>
+                    <div class="github-stat">
+                        <svg
+                            class="github-stat-icon"
+                            fill="currentColor"
+                            viewBox="0 0 16 16"
+                        >
+                            <path
+                                fill-rule="evenodd"
+                                d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm9 3a1 1 0 11-2 0 1 1 0 012 0zm-.25-6.25a.75.75 0 00-1.5 0v3.5a.75.75 0 001.5 0v-3.5z"
+                            />
+                        </svg>
+                        <span id="ti">Total Issues:</span>
+                    </div>
+                    <div class="github-stat">
+                        <svg
+                            class="github-stat-icon"
+                            fill="currentColor"
+                            viewBox="0 0 16 16"
+                        >
+                            <path
+                                fill-rule="evenodd"
+                                d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"
+                            />
+                        </svg>
+                        <span id="ct">Contributed to (last year):</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <script defer src="script.js"></script>
+    </body>
+</html>
