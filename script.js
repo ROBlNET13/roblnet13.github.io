@@ -1,6 +1,6 @@
 async function get() {
     const response = await fetch(
-        "https://corsproxy.io/?https%3A%2F%2Fgithub-readme-stats.vercel.app%2Fapi%3Fusername%3Droblnet13"
+        "https://corsproxy.io/?https://github-readme-stats.vercel.app/api?username=roblnet13"
     );
     const html = await response.text();
     const parser = new DOMParser();
