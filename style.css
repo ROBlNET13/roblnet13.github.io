@@ -8,6 +8,10 @@
   src: url("fonts/fs-tahoma-8px-v2.ttf");
 }
 
+div {
+  position: absolute;
+}
+
 img {
   pointer-events: none;
 }
@@ -15,31 +19,24 @@ img {
 body {
   background: #000;
   color: white;
-  font-family: 'Tahoma2', Tahoma;
+  font-family: "Tahoma2", Tahoma;
   image-rendering: pixelated;
   padding: 0;
   font-size: 0.5rem;
   user-select: none;
 }
 
-#window {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 240px;
-    height: 180px;
-    transform: translate(-50%, -50%) scale(2);
-    background: url(images/SmileOSDarkBackground.png);
+.window {
+}
 
-    @media screen and (max-width: 480px) {
-        transform: translate(-50%, -50%) scale(1.5);
-    }
-    @media screen and (max-width: 360px) {
-        transform: translate(-50%, -50%) scale(1);
-    }
-    @media screen and (min-width: 720px) {
-        transform: translate(-50%, -50%) scale(3);
-    }
+.window-background {
+  width: calc(100% - 32px);
+  height: calc(100% - 32px);
+  border: 16px solid;
+  border-image-source: url(images/SmileOSDarkBackground.png);
+  border-image-slice: 16 fill;
+  top: 0;
+  left: 0;
 }
 
 .window-header {
@@ -57,15 +54,15 @@ body {
 }
 
 .window-title {
-    position: absolute;
-    width: 200px;
-    height: 10px;
-    left: 18px;
-    top: 3px;
-    font-size: 12.3px;
-    font-weight: bold;
-    text-shadow: 0.75px 0.75px black;
-    letter-spacing: 0.6px;
+  position: absolute;
+  width: calc(100% - 64px);
+  height: 10px;
+  left: 18px;
+  top: 3px;
+  font-size: 12.3px;
+  font-weight: bold;
+  text-shadow: 0.75px 0.75px black;
+  letter-spacing: 0.6px;
 }
 
 .button-square {
@@ -89,17 +86,73 @@ body {
 }
 
 .window-page {
-  width: calc(100% - 8px);
-  height: calc(100% - 6px);
-  padding: 4px;
-  padding-top: 2px;
+  width: 100%;
+  height: 100%;
+}
+
+.main-window {
+  top: 50%;
+  left: 50%;
+  width: 240px;
+  height: 180px;
+  transform: translate(-50%, -50%) scale(2);
+  background: url(images/SmileOSDarkBackground.png);
+  /* added this ^ so atleast seams wont be on the main window, only other ones */
+
+  @media screen and (max-width: 480px) {
+    transform: translate(-50%, -50%) scale(1.5);
+  }
+  @media screen and (max-width: 360px) {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  @media screen and (min-width: 720px) {
+    transform: translate(-50%, -50%) scale(3);
+  }
+}
+
+.totd-window {
+  width: 144px;
+  height: 157px;
+  left: 92px;
+  top: 3px;
+}
+
+.totd-window .window-title {
+  left: 17px;
 }
 
 .smileos-logo {
-    width: 96px;
-    height: 31.89713px;
-    left: -1px;
-    position: absolute;
-    transform: scale(0.78);
-    top: 8px;
+  width: 96px;
+  height: 31.89713px;
+  left: -1px;
+  position: absolute;
+  transform: scale(0.78);
+  top: 8px;
+}
+
+.inset-dark {
+  width: calc(100% - 18px);
+  height: calc(100% - 17px);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.inset-dark-background {
+  width: calc(100% - 12px);
+  height: calc(100% - 12px);
+  border: 6px solid;
+  border-image-source: url(images/DarkWindowInset.png);
+  border-image-slice: 6 fill;
+  top: 0;
+  left: 0;
+}
+
+.tip-text {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 12.5px;
+  width: calc(100% - 24px);
+  text-align: center;
+  line-height: 0.75;
 }
