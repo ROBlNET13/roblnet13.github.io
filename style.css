@@ -49,8 +49,6 @@ body {
   position: absolute;
   width: 16px;
   height: 16px;
-  background: url("/images/SmileWindowIcon.png");
-  background-size: cover;
 }
 
 .window-title {
