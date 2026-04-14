@@ -1,0 +1,105 @@
+@font-face {
+  font-family: "Tahoma";
+  src: url("fonts/fs-tahoma-8px.ttf");
+}
+
+@font-face {
+  font-family: "Tahoma2";
+  src: url("fonts/fs-tahoma-8px-v2.ttf");
+}
+
+img {
+  pointer-events: none;
+}
+
+body {
+  background: #000;
+  color: white;
+  font-family: 'Tahoma2', Tahoma;
+  image-rendering: pixelated;
+  padding: 0;
+  font-size: 0.5rem;
+  user-select: none;
+}
+
+#window {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 240px;
+    height: 180px;
+    transform: translate(-50%, -50%) scale(2);
+    background: url(images/SmileOSDarkBackground.png);
+
+    @media screen and (max-width: 480px) {
+        transform: translate(-50%, -50%) scale(1.5);
+    }
+    @media screen and (max-width: 360px) {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    @media screen and (min-width: 720px) {
+        transform: translate(-50%, -50%) scale(3);
+    }
+}
+
+.window-header {
+  width: 100%;
+  height: 16px;
+}
+
+.window-icon {
+  top: 0;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: url("/images/SmileWindowIcon.png");
+  background-size: cover;
+}
+
+.window-title {
+    position: absolute;
+    width: 200px;
+    height: 10px;
+    left: 18px;
+    top: 3px;
+    font-size: 12.3px;
+    font-weight: bold;
+    text-shadow: 0.75px 0.75px black;
+    letter-spacing: 0.6px;
+}
+
+.button-square {
+  right: 0px;
+  background: url("/images/TopButtonSquare.png");
+}
+.button-plus {
+  right: 14px;
+  background: url("/images/TopButtonPlus.png");
+}
+.button-dot {
+  right: 28px;
+  background: url("/images/TopButtonDot.png");
+}
+
+.window-container {
+  top: 16px;
+  width: 100%;
+  height: calc(100% - 16px);
+  position: absolute;
+}
+
+.window-page {
+  width: calc(100% - 8px);
+  height: calc(100% - 6px);
+  padding: 4px;
+  padding-top: 2px;
+}
+
+.smileos-logo {
+    width: 96px;
+    height: 31.89713px;
+    left: -1px;
+    position: absolute;
+    transform: scale(0.78);
+    top: 8px;
+}
