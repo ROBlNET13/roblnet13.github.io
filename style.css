@@ -24,9 +24,8 @@ body {
   padding: 0;
   font-size: 0.5rem;
   user-select: none;
-}
-
-.window {
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 .window-background {
@@ -65,15 +64,15 @@ body {
 
 .button-square {
   right: 0px;
-  background: url("/images/TopButtonSquare.png");
+  background: url("/images/TopButtonSquare.png") !important;
 }
 .button-plus {
   right: 14px;
-  background: url("/images/TopButtonPlus.png");
+  background: url("/images/TopButtonPlus.png") !important;
 }
 .button-dot {
   right: 28px;
-  background: url("/images/TopButtonDot.png");
+  background: url("/images/TopButtonDot.png") !important;
 }
 
 .window-container {
@@ -97,13 +96,13 @@ body {
   background: url(images/SmileOSDarkBackground.png);
   /* added this ^ so atleast seams wont be on the main window, only other ones */
 
-  @media screen and (max-width: 480px) {
+   @media screen and (max-width: 480px), screen and (max-height: 360px) {
     transform: translate(-50%, -50%) scale(1.5);
   }
-  @media screen and (max-width: 360px) {
+  @media screen and (max-width: 360px), screen and (max-height: 270px) {
     transform: translate(-50%, -50%) scale(1);
   }
-  @media screen and (min-width: 720px) {
+  @media screen and (min-width: 720px) and (min-height: 540px) {
     transform: translate(-50%, -50%) scale(3);
   }
 }
@@ -145,7 +144,7 @@ body {
   left: 0;
 }
 
-.tip-text {
+#tip-text {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -153,4 +152,9 @@ body {
   width: calc(100% - 24px);
   text-align: center;
   line-height: 0.75;
+}
+
+#tip-text p {
+  margin-bottom: 1.5px;
+  margin-top: 12px;
 }

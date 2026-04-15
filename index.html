@@ -5,7 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ROBINET13</title>
-  <link rel="icon" href="/images/original/smileOS 2 logo background.png" type="image/png" />
+  <script src="script.js"></script>
+  <link rel="icon" href="/images/favicon.png" type="image/png" />
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -16,9 +17,9 @@
       <img src="images/SmileIcon.png" class="window-icon" />
       <div class="window-title">SmileOS 2.0</div>
 
-      <div class="window-icon button-square"></div>
-      <div class="window-icon button-plus"></div>
-      <div class="window-icon button-dot"></div>
+      <div class="window-icon button-square" onclick="playSound('audio/smileOS2Error.wav')"></div>
+      <div class="window-icon button-plus" onclick="playSound('audio/smileOS2Error.wav')"></div>
+      <div class="window-icon button-dot" onclick="playSound('audio/smileOS2Error.wav')"></div>
     </div>
     <div class="window-container">
       <div class="window-page main-page">
@@ -29,14 +30,14 @@
             <img src="images/LightIcon.png" class="window-icon" />
             <div class="window-title">Tip of the Day</div>
 
-            <div class="window-icon button-square"></div>
-            <div class="window-icon button-plus"></div>
-            <div class="window-icon button-dot"></div>
+            <div class="window-icon button-square" onclick="playSound('audio/smileOS2Error.wav')"></div>
+            <div class="window-icon button-plus" onclick="playSound('audio/smileOS2Error.wav')"></div>
+            <div class="window-icon button-dot" onclick="playSound('audio/smileOS2Error.wav')"></div>
           </div>
           <div class="window-container">
             <div class="inset-dark">
               <div class="inset-dark-background"></div>
-              <div class="tip-text"><span style="color: #d93a39;">Slide</span>: Greater distance, no invincibility</div>
+              <div id="tip-text"></div>
             </div>
           </div>
         </div>
