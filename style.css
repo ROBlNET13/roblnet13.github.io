@@ -8,12 +8,21 @@
   src: url("fonts/fs-tahoma-8px-v2.ttf");
 }
 
+@font-face {
+  font-family: "VCR-OSD-Replayed";
+  src: url(fonts/vcr-osd-replayed.ttf);
+}
+
 div {
   position: absolute;
 }
 
 img {
   pointer-events: none;
+}
+
+.hidden {
+  display: none;
 }
 
 body {
@@ -26,6 +35,62 @@ body {
   user-select: none;
   overflow-y: hidden;
   overflow-x: hidden;
+}
+
+.uibox {
+    top: 50%;
+    left: 50%;
+    width: 37px;
+    height: 37px;
+    background: url(images/UIbox.png);
+    transform: translate(-50%, -50%) scale(3);
+    z-index: 3;
+}
+
+.uibox-text {
+  width: 33px;
+  height: 5px;
+  font-size: 3px;
+  left: 2px;
+  top: 12px;
+}
+
+.uibox-button {
+    width: 37px;
+    height: 16px;
+    border: 3px solid;
+    border-image-source: url(images/UIboxButton.png);
+    border-image-slice: 3 fill;
+    background-color: #bebebe;
+    font-size: 6px;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.55);
+}
+
+.uibox-button:active {
+  border-image-source: url(images/UIboxButtonPressed.png);
+    background-color: #7f7f7f;
+}
+
+.black-thing {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200%;
+  height: 200%;
+  background: #000;
+  z-index: 2;
+  position: absolute;
+}
+
+.uibox,
+.uibox-button {
+  font-family: "VCR-OSD-Replayed";
+  color: #262626;
+  text-align: center;
 }
 
 .window-background {
@@ -75,6 +140,16 @@ body {
   background: url("/images/TopButtonDot.png") !important;
 }
 
+.button-dot:hover, .button-plus:hover, .button-square:hover {
+  filter: brightness(1.15);
+  cursor: pointer;
+}
+
+.button-dot:active, .button-plus:active, .button-square:active {
+  filter: brightness(0.9);
+  cursor: pointer;
+}
+
 .window-container {
   top: 16px;
   width: 100%;
@@ -92,19 +167,23 @@ body {
   left: 50%;
   width: 240px;
   height: 180px;
-  transform: translate(-50%, -50%) scale(2);
-  background: url(images/SmileOSDarkBackground.png);
+  /* background: url(images/SmileOSDarkBackground.png); */
   /* added this ^ so atleast seams wont be on the main window, only other ones */
+  transform: translate(-50%, -50%) scale(1.5);
 
-   @media screen and (max-width: 480px), screen and (max-height: 360px) {
-    transform: translate(-50%, -50%) scale(1.5);
-  }
   @media screen and (max-width: 360px), screen and (max-height: 270px) {
     transform: translate(-50%, -50%) scale(1);
   }
   @media screen and (min-width: 720px) and (min-height: 540px) {
     transform: translate(-50%, -50%) scale(3);
   }
+}
+
+.window-content {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.07s linear;
+  transform: scale(1, 0);
 }
 
 .totd-window {
@@ -152,6 +231,10 @@ body {
   width: calc(100% - 24px);
   text-align: center;
   line-height: 0.75;
+}
+
+#tip-text:hover {
+  cursor: help;
 }
 
 #tip-text p {
