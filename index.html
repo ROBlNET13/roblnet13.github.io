@@ -1,62 +1,62 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ROBINET13</title>
-    <script src="script.js"></script>
-    <link rel="icon" href="/images/favicon.png" type="image/png" />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="preload" as="image" href="images/UIboxButtonPressed.png" />
-    <link rel="preload" as="audio" href="audio/smileOS2Startup.wav" />
-    <link rel="preload" as="audio" href="audio/HumStart.ogg" />
-    <link rel="preload" as="audio" href="audio/smileOS2Error.wav" />
-  </head>
 
-  <body>
-    <div class="window main-window">
-      <div class="black-thing"></div>
-      <div class="window-content">
-        <img src="images/SmileOSDarkBackground.png" style="position: absolute;">
-        <div class="window-background"></div>
-        <div class="window-header">
-          <img src="images/SmileIcon.png" class="window-icon" />
-          <div class="window-title">SmileOS 2.0</div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROBINET13</title>
+  <script src="script.js"></script>
+  <link rel="icon" href="/images/favicon.png" type="image/png" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preload" as="image" href="images/UIboxButtonPressed.png" />
+  <link rel="preload" as="image" href="images/BlackButtonHightlighted.png" />
+  <link rel="preload" as="image" href="images/BlackButtonDisabled.png" />
+  <link rel="preload" as="audio" href="audio/smileOS2Startup.wav" />
+  <link rel="preload" as="audio" href="audio/HumStart.ogg" />
+  <link rel="preload" as="audio" href="audio/smileOS2Error.wav" />
+</head>
 
-          <div
-            class="window-icon button-square"
-            onclick="playSound('audio/smileOS2Error.wav')"
-          ></div>
-          <div
-            class="window-icon button-plus"
-            onclick="playSound('audio/smileOS2Error.wav')"
-          ></div>
-          <div
-            class="window-icon button-dot"
-            onclick="playSound('audio/smileOS2Error.wav')"
-          ></div>
+<body>
+  <div class="window main-window">
+    <div class="black-cover"></div>
+    <div class="window-content">
+      <img src="images/SmileOSDarkBackground.png" style="position: absolute" />
+      <div class="window-header">
+        <img src="images/SmileIcon.png" class="window-icon" />
+        <div class="window-title">SmileOS 2.0</div>
+
+        <div class="window-icon button-square" onclick="playSound('audio/smileOS2Error.wav')"></div>
+        <div class="window-icon button-plus" onclick="playSound('audio/smileOS2Error.wav')"></div>
+        <div class="window-icon button-dot" onclick="playSound('audio/smileOS2Error.wav')"></div>
+      </div>
+      <div class="window-container">
+        <div class="window-page" id="main-page">
+          <img src="images/SmileOS.png" class="smileos-logo" />
+
+          <button class="black-button about-button" style="top: 44px; left: 4px" onclick="switchRightWindow('about')">
+            <div class="black-button-background"></div>
+            <div class="black-button-text">About Me</div>
+          </button>
+
+          <button class="black-button projects-button" style="top: 67px; left: 4px" onclick="switchRightWindow('totd')">
+            <div class="black-button-background"></div>
+            <div class="black-button-text">Projects</div>
+          </button>
+
+          <button class="black-button socials-button" style="top: 90px; left: 4px" onclick="switchRightWindow('totd')">
+            <div class="black-button-background"></div>
+            <div class="black-button-text">Socials</div>
+          </button>
         </div>
-        <div class="window-container">
-          <div class="window-page main-page">
-            <img src="images/SmileOS.png" class="smileos-logo" />
-            <div class="window totd-window">
-              <div class="window-background"></div>
+         <div class="right-window window open" id="totd-window" style="transform: scale(1, 1);">
+           <div class="window-background"></div>
               <div class="window-header">
                 <img src="images/LightIcon.png" class="window-icon" />
                 <div class="window-title">Tip of the Day</div>
 
-                <div
-                  class="window-icon button-square"
-                  onclick="playSound('audio/smileOS2Error.wav')"
-                ></div>
-                <div
-                  class="window-icon button-plus"
-                  onclick="playSound('audio/smileOS2Error.wav')"
-                ></div>
-                <div
-                  class="window-icon button-dot"
-                  onclick="playSound('audio/smileOS2Error.wav')"
-                ></div>
+                <div class="window-icon button-square" onclick="playSound('audio/smileOS2Error.wav')"></div>
+                <div class="window-icon button-plus" onclick="playSound('audio/smileOS2Error.wav')"></div>
+                <div class="window-icon button-dot" onclick="playSound('audio/smileOS2Error.wav')"></div>
               </div>
               <div class="window-container">
                 <div class="inset-dark">
@@ -64,16 +64,35 @@
                   <div id="tip-text"></div>
                 </div>
               </div>
-            </div>
           </div>
-        </div>
-      </div>
 
-      <div class="uibox">
-        <button class="uibox-button" onclick="closeFunnyStartPopup()">
-          Boot
-        </button>
+          <div class="right-window window" id="about-window">
+            <div class="window-background"></div>
+              <div class="window-header">
+                <img src="images/StatsIcon.png" class="window-icon" />
+                <div class="window-title">About Me</div>
+
+                <div class="window-icon button-square" onclick="playSound('audio/smileOS2Error.wav')"></div>
+                <div class="window-icon button-plus" onclick="playSound('audio/smileOS2Error.wav')"></div>
+                <div class="window-icon button-dot" onclick="playSound('audio/smileOS2Error.wav')"></div>
+              </div>
+              <div class="window-container">
+                <div class="inset-dark">
+                  <div class="inset-dark-background"></div>
+                  <div id="tip-text"></div>
+                </div>
+              </div>
+          </div>
       </div>
     </div>
-  </body>
+
+    <div id="boot-popup">
+      <div class="boot-popup-background"></div>
+      <button class="boot-button" onclick="closeBootPopup()">
+        <div class="boot-text">BOOT</div>
+      </button>
+    </div>
+  </div>
+</body>
+
 </html>

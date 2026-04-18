@@ -6,7 +6,7 @@ function randomInt(min, max) {
 
 const playingSounds = {};
 
-function playSound(sound, loop, volume = 0.5) {
+function playSound(sound, loop = false, volume = 0.5, cooldownEnabled = true) {
   let isDeleted = false;
 
   if (!playingSounds[sound]) {
@@ -25,20 +25,20 @@ function playSound(sound, loop, volume = 0.5) {
       // delete playingSounds[sound];
     });
     setTimeout(function () {
-      if (isDeleted === false && audio.loop === false) {
+      if (cooldownEnabled === true && isDeleted === false && audio.loop === false) {
         isDeleted = true;
         delete playingSounds[sound];
       }
-    }, 200);
+    }, 150);
   }
 }
 
-function closeFunnyStartPopup() {
-  let thePopup = document.querySelector(".uibox");
-  let theBlackThing = document.querySelector(".black-thing");
+function closeBootPopup() {
+  let thePopup = document.getElementById("boot-popup")
+  let theBlackCover = document.querySelector(".black-cover");
   let theWindowContent = document.querySelector(".window-content");
   thePopup.remove();
-  theBlackThing.remove();
+  theBlackCover.remove();
   theWindowContent.style.transform = "scale(1)";
   playSound("audio/smileOS2Startup.wav");
   playSound("audio/HumStart.ogg");
@@ -48,6 +48,24 @@ function closeFunnyStartPopup() {
   setTimeout(() => {
     shopMusic.play();
   }, 3000);
+}
+
+let currentRightWindow = "totd"
+let currentPage = "main"
+
+function switchRightWindow(desiredRightWindow, desiredPage) {
+  playSound('audio/smileOSclick' + randomInt(1, 3) + '.wav', false, 0.2)
+
+  let theWindow = document.getElementById(desiredRightWindow + "-window");
+
+  if (theWindow && (currentRightWindow !== desiredRightWindow)) {
+
+    let previousWindow = document.getElementById(currentRightWindow + "-window");
+
+    previousWindow.classList.remove("open");
+    currentRightWindow = desiredRightWindow;
+    theWindow.classList.add("open");
+  }
 }
 
 let possibleTips = [
@@ -65,13 +83,17 @@ let possibleTips = [
 
 const preloadSounds = [
   "audio/smileOS2Startup.wav",
-  "audio/HumStart.ogg"
-]
+  "audio/HumStart.ogg",
+  "audio/smileOSclick1.wav",
+  "audio/smileOSclick2.wav",
+  "audio/smileOSclick3.wav",
+];
 window.addEventListener("load", (event) => {
   const tipElement = document.getElementById("tip-text");
   tipElement.innerHTML = possibleTips[randomInt(0, possibleTips.length - 1)];
   if (randomInt(0, 15) === 0) {
-    document.querySelector("body > div > div > div.window-header > img").src = "images/ColonThreeIcon.png";
+    document.querySelector("body > div > div > div.window-header > img").src =
+      "images/ColonThreeIcon.png";
   }
   preloadSounds.forEach((sound) => {
     const audio = new Audio(sound);
