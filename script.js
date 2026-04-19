@@ -73,7 +73,7 @@ let possibleTips = [
   "This is an example of what can appear on here!<p>Reload the page to get another tip!</p>",
   "H a v e&nbsp;&nbsp;&nbsp;f u n .",
   "Crazy? I was crazy once.<p>They locked me in a room.</p><p>A rubber room.</p><p>A rubber room with rats.</p><p>And rats make me crazy.</p>",
-  "👽",
+  "<img src='images/AlienEmoji.png' style='width: 16px; height: 16px;'>",
   "undefined",
   "defined",
   "<img src='images/UIbox.png'> <p>box</p>",

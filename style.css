@@ -21,6 +21,12 @@ img {
   pointer-events: none;
 }
 
+button:focus-visible {
+  outline: 1px solid rgb(255, 255, 255);
+}
+
+
+
 .hidden {
   display: none;
 }
@@ -290,7 +296,7 @@ body {
   left: 0;
 }
 
-#tip-text {
+#tip-text, .about-text {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
