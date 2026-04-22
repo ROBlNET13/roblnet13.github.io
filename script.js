@@ -41,7 +41,7 @@ function closeBootPopup() {
 
   thePopup.remove();
   theWindowContent.style.transform = "scale(1)";
-  
+
   playSound("audio/smileOS2Startup.wav");
   playSound("audio/HumStart.ogg");
 
@@ -57,12 +57,12 @@ function closeBootPopup() {
 let currentRightWindow = "totd"
 let currentPage = "main"
 
-function windowChildren(parent, whatToDo) {
+function activateWindows(parent, enableWindows) {
   parent.childNodes.forEach((child) => {
     if (child.nodeType === 1 && child.classList.contains("window")) {
-      if (whatToDo == "open") {
+      if (enableWindows == true) {
         child.classList.add("open");
-      } else if (whatToDo === "hide") {
+      } else if (enableWindows === true) {
         child.classList.remove("open");
       }
     };
@@ -99,15 +99,15 @@ function changeWindowOrPage(desiredRightWindow, desiredPage) {
     if (thePage && (currentPage !== desiredPage)) {
       if (previousPage) {
         previousPage.style = "display: none;";
-        windowChildren(previousPage, "hide")
+        activateWindows(previousPage, false)
       };
       currentPage = desiredPage;
       thePage.style = "display: block;"
-      windowChildren(thePage, "open")
+      activateWindows(thePage, true)
     } else if (desiredPage === "none") {
       if (previousPage) {
         previousPage.style = "display: none;";
-        windowChildren(previousPage, "hide")
+        activateWindows(previousPage, false)
       };
       currentPage = "none";
     }
