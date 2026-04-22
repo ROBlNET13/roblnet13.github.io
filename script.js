@@ -34,17 +34,21 @@ function playSound(sound, loop = false, volume = 0.5, cooldownEnabled = true) {
 }
 
 function closeBootPopup() {
-  let thePopup = document.getElementById("boot-popup")
-  let theBlackCover = document.querySelector(".black-cover");
+  playSound('audio/smileOSclick' + randomInt(1, 3) + '.wav', false, 0.1)
+
+  let thePopup = document.getElementById("boot-popup");
   let theWindowContent = document.querySelector(".window-content");
+
   thePopup.remove();
-  theBlackCover.remove();
   theWindowContent.style.transform = "scale(1)";
+  
   playSound("audio/smileOS2Startup.wav");
   playSound("audio/HumStart.ogg");
+
   const shopMusic = new Audio(`audio/shopmusic${randomInt(1, 4)}.wav`);
   shopMusic.loop = true;
   shopMusic.volume = 0.5;
+
   setTimeout(() => {
     shopMusic.play();
   }, 3000);
@@ -53,18 +57,60 @@ function closeBootPopup() {
 let currentRightWindow = "totd"
 let currentPage = "main"
 
-function switchRightWindow(desiredRightWindow, desiredPage) {
+function windowChildren(parent, whatToDo) {
+  parent.childNodes.forEach((child) => {
+    if (child.nodeType === 1 && child.classList.contains("window")) {
+      if (whatToDo == "open") {
+        child.classList.add("open");
+      } else if (whatToDo === "hide") {
+        child.classList.remove("open");
+      }
+    };
+  });
+}
+
+function changeWindowOrPage(desiredRightWindow, desiredPage) {
   playSound('audio/smileOSclick' + randomInt(1, 3) + '.wav', false, 0.2)
 
   let theWindow = document.getElementById(desiredRightWindow + "-window");
+  let thePage = document.getElementById(desiredPage + "-page");
 
-  if (theWindow && (currentRightWindow !== desiredRightWindow)) {
+  let previousPage = document.getElementById(currentPage + "-page");
+  let previousWindow = document.getElementById(currentRightWindow + "-window");
 
-    let previousWindow = document.getElementById(currentRightWindow + "-window");
+  console.log(desiredRightWindow, desiredPage)
 
-    previousWindow.classList.remove("open");
-    currentRightWindow = desiredRightWindow;
-    theWindow.classList.add("open");
+  if (desiredRightWindow) {
+    if (theWindow && (currentRightWindow !== desiredRightWindow)) {
+      if (previousWindow) {
+        previousWindow.classList.remove("open");
+      }
+      currentRightWindow = desiredRightWindow;
+      theWindow.classList.add("open");
+    } else if (desiredRightWindow === "none") {
+      if (previousWindow) {
+        previousWindow.classList.remove("open");
+      }
+      currentRightWindow = "none";
+    }
+  }
+
+  if (desiredPage) {
+    if (thePage && (currentPage !== desiredPage)) {
+      if (previousPage) {
+        previousPage.style = "display: none;";
+        windowChildren(previousPage, "hide")
+      };
+      currentPage = desiredPage;
+      thePage.style = "display: block;"
+      windowChildren(thePage, "open")
+    } else if (desiredPage === "none") {
+      if (previousPage) {
+        previousPage.style = "display: none;";
+        windowChildren(previousPage, "hide")
+      };
+      currentPage = "none";
+    }
   }
 }
 
@@ -79,6 +125,9 @@ let possibleTips = [
   "<img src='images/UIbox.png'> <p>box</p>",
   "Upgrade to Nocturnal now — boost your productivity with SmileSoft Copilot!",
   "<img src='images/ginger.webp'> <p>stupid</p>",
+  "Hello World!",
+  "Goodbye World!",
+
 ];
 
 const preloadSounds = [

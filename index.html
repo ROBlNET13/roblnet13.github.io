@@ -18,7 +18,6 @@
 
 <body>
   <div class="window main-window">
-    <div class="black-cover"></div>
     <div class="window-content">
       <img src="images/SmileOSDarkBackground.png" style="position: absolute" />
       <div class="window-header">
@@ -30,59 +29,99 @@
         <div class="window-icon button-dot" onclick="playSound('audio/smileOS2Error.wav')"></div>
       </div>
       <div class="window-container">
-        <div class="window-page" id="main-page">
+        <div class="window-page" id="main-page" style="display: block;">
           <img src="images/SmileOS.png" class="smileos-logo" />
 
-          <button class="black-button about-button" style="top: 44px; left: 4px" onclick="switchRightWindow('about')">
+          <button class="black-button about-button" style="top: 44px; left: 4px" onclick="changeWindowOrPage('totd')">
             <div class="black-button-background"></div>
             <div class="black-button-text">About Me</div>
           </button>
 
-          <button class="black-button projects-button" style="top: 67px; left: 4px" onclick="switchRightWindow('totd')">
+          <button class="black-button projects-button" style="top: 67px; left: 4px" onclick="changeWindowOrPage(undefined, 'projects')">
             <div class="black-button-background"></div>
             <div class="black-button-text">Projects</div>
           </button>
 
-          <button class="black-button socials-button" style="top: 90px; left: 4px" onclick="switchRightWindow('totd')">
+          <button class="black-button socials-button" style="top: 90px; left: 4px" onclick="changeWindowOrPage('socials')">
             <div class="black-button-background"></div>
             <div class="black-button-text">Socials</div>
           </button>
         </div>
-         <div class="right-window window open" id="totd-window" style="transform: scale(1, 1);">
-           <div class="window-background"></div>
-              <div class="window-header">
-                <img src="images/LightIcon.png" class="window-icon" />
-                <div class="window-title">Tip of the Day</div>
 
-                <div class="window-icon button-square" onclick="playSound('audio/smileOS2Error.wav')"></div>
-                <div class="window-icon button-plus" onclick="playSound('audio/smileOS2Error.wav')"></div>
-                <div class="window-icon button-dot" onclick="playSound('audio/smileOS2Error.wav')"></div>
-              </div>
-              <div class="window-container">
-                <div class="inset-dark">
-                  <div class="inset-dark-background"></div>
-                  <div id="tip-text"></div>
-                </div>
-              </div>
-          </div>
-
-          <div class="right-window window" id="about-window">
+        <div class="window-page" id="projects-page">
+          <div class="left-window window">
             <div class="window-background"></div>
-              <div class="window-header">
-                <img src="images/StatsIcon.png" class="window-icon" />
-                <div class="window-title">About Me</div>
+            <div class="window-header">
+              <div class="window-icon button-square" onclick="playSound('audio/smileOS2Error.wav')"></div>
+              <div class="window-icon button-plus" onclick="playSound('audio/smileOS2Error.wav')"></div>
+              <div class="window-icon button-dot" onclick="playSound('audio/smileOS2Error.wav')"></div>
+            </div>
 
-                <div class="window-icon button-square" onclick="playSound('audio/smileOS2Error.wav')"></div>
-                <div class="window-icon button-plus" onclick="playSound('audio/smileOS2Error.wav')"></div>
-                <div class="window-icon button-dot" onclick="playSound('audio/smileOS2Error.wav')"></div>
-              </div>
-              <div class="window-container">
-                <div class="inset-dark">
-                  <div class="inset-dark-background"></div>
-                  <div class="about-text">i literally have no fucking idea what to put here<img src='images/ginger.webp'><img src='images/ginger.webp' style="transform: scale(-1, 1);"></div>
-                </div>
-              </div>
+            <div class="window-container">
+              <div class="window-big-title" style="width: 53px;">Projects</div>
+              <button class="black-button-short pvzm-button" style="top: 26px; left: 4px;" onclick="changeWindowOrPage('pvzm')">
+                <div class="black-button-background"></div>
+                <div class="black-button-text">PVZM</div>
+              </button>
+              <button class="black-button-short back-button" style="top: 124px; left: 4px;" onclick="changeWindowOrPage('totd', 'main')">
+                <div class="black-button-background"></div>
+                <div class="black-button-text">Back</div>
+              </button>
+            </div>
           </div>
+        </div>
+
+        <div class="right-window window open" id="totd-window">
+          <div class="window-background"></div>
+          <div class="window-header">
+            <img src="images/LightIcon.png" class="window-icon" />
+            <div class="window-title">Tip of the Day</div>
+
+            <div class="window-icon button-square" onclick="playSound('audio/smileOS2Error.wav')"></div>
+            <div class="window-icon button-plus" onclick="playSound('audio/smileOS2Error.wav')"></div>
+            <div class="window-icon button-dot" onclick="playSound('audio/smileOS2Error.wav')"></div>
+          </div>
+          <div class="window-container">
+            <div class="inset-dark">
+              <div class="inset-dark-background"></div>
+              <div id="tip-text"></div>
+            </div>
+          </div>
+        </div>
+
+         <div class="right-window window" id="pvzm-window">
+          <div class="window-background"></div>
+          <div class="window-header">
+            <img src="images/HammerIcon.png" class="window-icon" />
+            <div class="window-title">PVZM</div>
+
+            <div class="window-icon button-square" onclick="playSound('audio/smileOS2Error.wav')"></div>
+            <div class="window-icon button-plus" onclick="playSound('audio/smileOS2Error.wav')"></div>
+            <div class="window-icon button-dot" onclick="playSound('audio/smileOS2Error.wav')"></div>
+          </div>
+          <div class="window-container">
+            <div class="inset-dark">
+              <div class="inset-dark-background"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="right-window window" id="socials-window">
+          <div class="window-background"></div>
+          <div class="window-header">
+            <img src="images/SocialsIcon.png" class="window-icon" />
+            <div class="window-title">Socials</div>
+
+            <div class="window-icon button-square" onclick="playSound('audio/smileOS2Error.wav')"></div>
+            <div class="window-icon button-plus" onclick="playSound('audio/smileOS2Error.wav')"></div>
+            <div class="window-icon button-dot" onclick="playSound('audio/smileOS2Error.wav')"></div>
+          </div>
+          <div class="window-container">
+            <div class="inset-dark">
+              <div class="inset-dark-background"></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 

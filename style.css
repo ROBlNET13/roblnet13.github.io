@@ -21,11 +21,17 @@ img {
   pointer-events: none;
 }
 
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: default;
+}
+
 button:focus-visible {
   outline: 1px solid rgb(255, 255, 255);
 }
-
-
 
 .hidden {
   display: none;
@@ -96,14 +102,26 @@ body {
   position: absolute;
 }
 
-.black-button {
+.black-button,
+.black-button-short {
   position: absolute;
   background: transparent;
   border: none !important;
   width: 86px;
-  left: 4px;
   height: 21px;
   color: white;
+  font-size: 11px;
+}
+
+.black-button-short {
+  width: 78.5px;
+  height: 12px;
+  font-size: 11px;
+}
+
+.black-button-short .black-button-text {
+  top: 6px;
+  height: 70%;
 }
 
 .black-button-text {
@@ -114,9 +132,7 @@ body {
   height: 40%;
   transform: translate(-50%, -50%);
   font-family: "Tahoma2";
-  font-size: 11px;
   text-align: center;
-  overflow: hidden;
 }
 
 .black-button-background {
@@ -130,13 +146,18 @@ body {
   border-image-slice: 4 fill;
   transform: translate(-50%, -50%);
 }
-.black-button:hover {
+
+.black-button:hover,
+.black-button-short:hover {
   & .black-button-background {
     border-image-source: url(images/BlackButtonHightlighted.png);
   }
 }
+
 .black-button:active,
-.black-button:disabled {
+.black-button-short:active,
+.black-button:disabled,
+.black-button-short:disabled {
   & .black-button-background {
     border-image-source: url(images/BlackButtonDisabled.png);
   }
@@ -184,10 +205,12 @@ body {
   right: 0px;
   background: url("/images/TopButtonSquare.png") !important;
 }
+
 .button-plus {
   right: 14px;
   background: url("/images/TopButtonPlus.png") !important;
 }
+
 .button-dot {
   right: 28px;
   background: url("/images/TopButtonDot.png") !important;
@@ -217,6 +240,7 @@ body {
 .window-page {
   width: 100%;
   height: 100%;
+  display: none;
 }
 
 .main-window {
@@ -228,9 +252,11 @@ body {
   /* added this ^ so atleast seams wont be on the main window, only other ones */
   transform: translate(-50%, -50%) scale(1.5);
 
-  @media screen and (max-width: 360px), screen and (max-height: 270px) {
+  @media screen and (max-width: 360px),
+  screen and (max-height: 270px) {
     transform: translate(-50%, -50%) scale(1);
   }
+
   @media screen and (min-width: 720px) and (min-height: 540px) {
     transform: translate(-50%, -50%) scale(3);
   }
@@ -239,8 +265,15 @@ body {
 .window-content {
   width: 100%;
   height: 100%;
-  transition: transform 0.07s linear;
+  transition: transform 0.07s;
   transform: scale(1, 0);
+}
+
+.left-window {
+  width: 86px !important;
+  height: 157px !important;
+  top: 3px;
+  left: 4px;
 }
 
 .right-window {
@@ -248,19 +281,41 @@ body {
   height: 157px;
   left: 92px;
   top: 3px;
+}
+
+.window-page .window {
+  width: 100px;
+  height: 100px;
+}
+
+.window-page .window,
+.right-window {
   transform: scale(1, 0);
   display: none;
 }
 
-@keyframes window-open { /* assumes the window is centred with position: absolute */
+.window-big-title {
+  font-weight: bold;
+  font-size: 18px;
+  letter-spacing: 1.7px;
+  top: 7px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+@keyframes window-open {
+
+  /* assumes the window is centred with position: absolute */
   from {
     transform: scale(1, 0);
   }
+
   to {
     transform: scale(1);
   }
 }
 
+.window.open,
 .right-window.open {
   animation: window-open 0.07s linear forwards;
   display: block;
@@ -286,6 +341,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
 .inset-dark-background {
   width: calc(100% - 12px);
   height: calc(100% - 12px);
@@ -296,7 +352,8 @@ body {
   left: 0;
 }
 
-#tip-text, .about-text {
+#tip-text,
+.about-text {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
